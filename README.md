@@ -6,7 +6,7 @@ The Movie Database app allows users to search for movies, tv shows, and actors.
 
 # How it works
 
-The user's search query will search against the `movies`, `tv`, and `person` endpoints in **The Movie Database API**. The results are displayed in a single list in which the list is sorted in descending order by `vote_average`. The `Movie` and `TV` entities already contain a `vote_average` proeprty, but the vote average for the Person entity needs to be a calculated value. The calculation is the average `vote_average` of all entities in the `known_for` array.
+The user's search query will search against the `movies`, `tv`, and `person` endpoints in **The Movie Database API**. The results are displayed in a single list in which the list is sorted in descending order by `vote_average`. The `Movie` and `TV` entities already contain a `vote_average` property, but the vote average for the Person entity needs to be a calculated value. The calculation is the average `vote_average` of all entities in the `known_for` array.
 
 # API
 
