@@ -72,3 +72,10 @@ public struct Person: Codable {
     case knownFor = "known_for"
   }
 }
+
+struct MediaEntity: Equatable {
+  let title: String
+  let imagePath: URL?
+  let averageRating: String
+  let initialAirDate: String
+}
