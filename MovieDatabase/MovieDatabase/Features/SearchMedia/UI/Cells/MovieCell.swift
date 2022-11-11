@@ -47,9 +47,15 @@ public class MovieCell: UITableViewCell {
   }
 
   public func configure(with movie: Movie) {
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "yyyy-MM-dd"
+    let newDateFormatter = DateFormatter()
+    newDateFormatter.dateStyle = .long
+    newDateFormatter.timeStyle = .none
     titleLabel.text = movie.title
     voteLabel.text = String(movie.voteAverage)
-    dateLabel.text = movie.releaseDate
+    let parsedDate = dateFormatter.date(from: movie.releaseDate)
+    dateLabel.text = parsedDate != nil ? newDateFormatter.string(from: parsedDate!) : nil
     downloadImage(movie.backdropPath)
   }
 

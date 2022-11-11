@@ -50,8 +50,10 @@ public class PersonCell: UITableViewCell {
 
   public func configure(with person: Person) {
     titleLabel.text = person.name
-    voteLabel.text = "person.voteAverage"
-    knownForLabel.text = "person.knownFor"
+    voteLabel.text = "\(round(person.voteAverage * 10) / 10)" // round to tenths
+    knownForLabel.text = person.ratingAverages.map {
+      "\($0.key) (\($0.value))"
+    }.joined(separator: ", ")
     downloadImage(person.profilePath)
   }
 

@@ -47,9 +47,15 @@ public class TVShowCell: UITableViewCell {
   }
 
   public func configure(with show: TVShow) {
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "yyyy-MM-dd"
+    let newDateFormatter = DateFormatter()
+    newDateFormatter.dateStyle = .long
+    newDateFormatter.timeStyle = .none
     titleLabel.text = show.name
     voteLabel.text = String(show.voteAverage)
-    dateLabel.text = show.firstAirDate
+    let parsedDate = show.firstAirDate != nil ? dateFormatter.date(from: show.firstAirDate!) : nil
+    dateLabel.text = parsedDate != nil ? newDateFormatter.string(from: parsedDate!) : nil
     downloadImage(show.posterPath)
   }
 
