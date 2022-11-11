@@ -73,9 +73,28 @@ public struct Person: Codable {
   }
 }
 
-struct MediaEntity: Equatable {
-  let title: String
-  let imagePath: URL?
-  let averageRating: String
-  let initialAirDate: String
+// MARK: - Project specific models
+
+extension Person {
+  public var voteAverage: Double {
+    let ratingAverage = ratingAverages.values.reduce(0, +) / Double(knownFor.count)
+    return ratingAverage
+  }
+  
+  public var ratingAverages: [String : Double] {
+    var averages: [String: Double] = [:]
+    knownFor.forEach { knownForValue in
+      averages[knownForValue.title ?? "Untitled"] = knownForValue.voteAverage
+    }
+    
+    return averages
+  }
 }
+
+protocol HasVoteAverage {
+  var voteAverage: Double { get }
+}
+
+extension Movie: HasVoteAverage {}
+extension TVShow: HasVoteAverage {}
+extension Person: HasVoteAverage {}

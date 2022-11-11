@@ -18,8 +18,8 @@
 		2446C7BE26EBB94700658D8E /* PersonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2446C7BD26EBB94700658D8E /* PersonCell.swift */; };
 		2446C7C026EBB96300658D8E /* MovieDatabaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2446C7BF26EBB96300658D8E /* MovieDatabaseViewController.swift */; };
 		2446C7C226EBB97200658D8E /* MovieDatabaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2446C7C126EBB97200658D8E /* MovieDatabaseViewModel.swift */; };
-		A789A127291B06B10046393E /* MediaEntityFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A789A126291B06B10046393E /* MediaEntityFactory.swift */; };
-		A789A12A291B085E0046393E /* MediaEntityFactoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A789A129291B085E0046393E /* MediaEntityFactoryTests.swift */; };
+		A7006CFB291DBF2200E160CF /* MovieDatabaseDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7006CFA291DBF2200E160CF /* MovieDatabaseDataProvider.swift */; };
+		A7006D00291DC1D800E160CF /* TMDBServiceApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7006CFF291DC1D800E160CF /* TMDBServiceApi.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,8 +57,8 @@
 		2446C7BD26EBB94700658D8E /* PersonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonCell.swift; sourceTree = "<group>"; };
 		2446C7BF26EBB96300658D8E /* MovieDatabaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDatabaseViewController.swift; sourceTree = "<group>"; };
 		2446C7C126EBB97200658D8E /* MovieDatabaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDatabaseViewModel.swift; sourceTree = "<group>"; };
-		A789A126291B06B10046393E /* MediaEntityFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaEntityFactory.swift; sourceTree = "<group>"; };
-		A789A129291B085E0046393E /* MediaEntityFactoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaEntityFactoryTests.swift; sourceTree = "<group>"; };
+		A7006CFA291DBF2200E160CF /* MovieDatabaseDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDatabaseDataProvider.swift; sourceTree = "<group>"; };
+		A7006CFF291DC1D800E160CF /* TMDBServiceApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBServiceApi.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,10 +110,8 @@
 			isa = PBXGroup;
 			children = (
 				2446C78426EBB80800658D8E /* AppDelegate.swift */,
-				2446C7BF26EBB96300658D8E /* MovieDatabaseViewController.swift */,
-				2446C7C126EBB97200658D8E /* MovieDatabaseViewModel.swift */,
+				A7CF34EF291DE0D500337942 /* Features */,
 				24BD7CA626EF878D00B3F6F5 /* API */,
-				2446C7B826EBB93100658D8E /* Cells */,
 				2446C78D26EBB80A00658D8E /* Assets.xcassets */,
 				2446C78F26EBB80A00658D8E /* LaunchScreen.storyboard */,
 				2446C79226EBB80A00658D8E /* Info.plist */,
@@ -153,18 +151,84 @@
 		24BD7CA626EF878D00B3F6F5 /* API */ = {
 			isa = PBXGroup;
 			children = (
-				2446C7B626EBB92200658D8E /* Models.swift */,
-				A789A126291B06B10046393E /* MediaEntityFactory.swift */,
+				A7CF34F2291DE74900337942 /* Services */,
 			);
 			path = API;
+			sourceTree = "<group>";
+		};
+		A7006D01291DC58200E160CF /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				A7006CFF291DC1D800E160CF /* TMDBServiceApi.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		A7006D02291DC5A200E160CF /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				2446C7B626EBB92200658D8E /* Models.swift */,
+			);
+			path = Entities;
 			sourceTree = "<group>";
 		};
 		A789A128291B08410046393E /* API */ = {
 			isa = PBXGroup;
 			children = (
-				A789A129291B085E0046393E /* MediaEntityFactoryTests.swift */,
 			);
 			path = API;
+			sourceTree = "<group>";
+		};
+		A7CF34EE291DE0C300337942 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				2446C7B826EBB93100658D8E /* Cells */,
+				2446C7BF26EBB96300658D8E /* MovieDatabaseViewController.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		A7CF34EF291DE0D500337942 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				A7CF34F0291DE0F400337942 /* SearchMedia */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		A7CF34F0291DE0F400337942 /* SearchMedia */ = {
+			isa = PBXGroup;
+			children = (
+				A7CF34F1291DE15100337942 /* BusinessLogic */,
+				A7CF34EE291DE0C300337942 /* UI */,
+			);
+			path = SearchMedia;
+			sourceTree = "<group>";
+		};
+		A7CF34F1291DE15100337942 /* BusinessLogic */ = {
+			isa = PBXGroup;
+			children = (
+				2446C7C126EBB97200658D8E /* MovieDatabaseViewModel.swift */,
+			);
+			path = BusinessLogic;
+			sourceTree = "<group>";
+		};
+		A7CF34F2291DE74900337942 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				A7CF34F3291DE76100337942 /* Data */,
+				A7006D01291DC58200E160CF /* Auth */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		A7CF34F3291DE76100337942 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				A7006D02291DC5A200E160CF /* Entities */,
+				A7006CFA291DBF2200E160CF /* MovieDatabaseDataProvider.swift */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -296,13 +360,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A789A127291B06B10046393E /* MediaEntityFactory.swift in Sources */,
 				2446C7C026EBB96300658D8E /* MovieDatabaseViewController.swift in Sources */,
 				2446C7C226EBB97200658D8E /* MovieDatabaseViewModel.swift in Sources */,
 				2446C7BC26EBB94200658D8E /* TVShowCell.swift in Sources */,
 				2446C78526EBB80800658D8E /* AppDelegate.swift in Sources */,
+				A7006CFB291DBF2200E160CF /* MovieDatabaseDataProvider.swift in Sources */,
 				2446C7BA26EBB93C00658D8E /* MovieCell.swift in Sources */,
 				2446C7B726EBB92200658D8E /* Models.swift in Sources */,
+				A7006D00291DC1D800E160CF /* TMDBServiceApi.swift in Sources */,
 				2446C7BE26EBB94700658D8E /* PersonCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -311,7 +376,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A789A12A291B085E0046393E /* MediaEntityFactoryTests.swift in Sources */,
 				2446C79C26EBB80A00658D8E /* MovieDatabaseTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
